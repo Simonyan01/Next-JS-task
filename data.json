@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Anna",
+        "surname": "Smith",
+        "age": 28,
+        "profession": "Software Engineer",
+        "shortBiography": "Anna is a passionate software engineer specializing in web development and AI-driven applications."
+    },
+    {
+        "id": 2,
+        "name": "Michael",
+        "surname": "Johnson",
+        "age": 35,
+        "profession": "Data Scientist",
+        "shortBiography": "Michael has a deep expertise in machine learning and big data analytics, working on predictive modeling."
+    },
+    {
+        "id": 3,
+        "name": "Sofia",
+        "surname": "Martinez",
+        "age": 30,
+        "profession": "Graphic Designer",
+        "shortBiography": "Sofia creates stunning visual content for brands and specializes in digital and print media."
+    },
+    {
+        "id": 4,
+        "name": "Daniel",
+        "surname": "Brown",
+        "age": 40,
+        "profession": "Project Manager",
+        "shortBiography": "Daniel has years of experience leading software projects, ensuring timely delivery and efficiency."
+    },
+    {
+        "id": 5,
+        "name": "Emily",
+        "surname": "Davis",
+        "age": 26,
+        "profession": "Marketing Specialist",
+        "shortBiography": "Emily focuses on digital marketing strategies, helping businesses grow their online presence."
+    }
+]
