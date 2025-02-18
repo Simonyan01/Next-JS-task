@@ -3,9 +3,7 @@ import { createWriteStream } from "fs"
 import { IUser } from "./types"
 import path from "path"
 
-//  --------------------------
-const UPLOAD_DIR = path.join(process.cwd(), "uploads") // ----- ChatGPT
-//  --------------------------
+const UPLOAD_DIR = path.join("public", "uploads")
 
 export const getAllUsers = async (): Promise<IUser[]> => {
   const result = await readFile("data.json", "utf-8")
@@ -15,12 +13,11 @@ export const getAllUsers = async (): Promise<IUser[]> => {
 
 export const addUser = async (body: IUser, photo?: Buffer, photoName?: string) => {
   const users = await getAllUsers()
-  const photoPath = path.join(UPLOAD_DIR, photoName as string)
   const id = Date.now()
+  const photoPath = path.join(UPLOAD_DIR, photoName as string)
 
-  if (photo) {
+  if (photo && photoName) {
     const stream = createWriteStream(photoPath)
-
     stream.write(photo)
     stream.end()
   }
@@ -36,4 +33,21 @@ export const getUserById = async (id: number): Promise<IUser | undefined> => {
   return users.find((user) => user.id == id)
 }
 
-export const updateUser = async () => {}
+export const updateUser = async (id: number, data: IUser, photo?: Buffer, photoName?: string) => {
+  const users = await getAllUsers()
+
+  const idx = users.findIndex((user) => user.id === id)
+  if (idx === -1) return
+
+  if (photo && photoName) {
+    const photoPath = path.join(UPLOAD_DIR, photoName)
+    const stream = createWriteStream(photoPath)
+    stream.write(photo)
+    stream.end()
+    users[idx].photoPath = photoPath
+  }
+
+  users[idx] = { ...users[idx], ...data }
+
+  await writeFile("data.json", JSON.stringify(users, null, 4))
+}

@@ -9,8 +9,8 @@ export const addUserAction = async (state: string, form: FormData) => {
   const age = Number(form.get("age")) || 0
   const profession = form.get("profession") as string
   const shortBiography = form.get("shortBiography") as string
-
   const file = form.get("photo") as File | null
+
   if (!name || !surname || !file) return "Please fill all the fields"
 
   const photo = Buffer.from(await file.arrayBuffer())

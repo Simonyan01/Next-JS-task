@@ -26,9 +26,8 @@ export default function RootLayout({
           <Link href={"/"}>Home</Link>
           <Link href={"/users"}>Users</Link>
           <Link href={"/add"}>Add User</Link>
-          <Link href={"/edit"}>Update User</Link>
         </nav>
-        <div className="min-h-screen bg-gray-800 text-white pt-20">
+        <div className="min-h-screen bg-gray-800 text-white pt-16 pb-12">
           {children}
         </div>
       </body>

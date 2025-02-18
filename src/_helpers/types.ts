@@ -7,3 +7,7 @@ export interface IUser {
   shortBiography: string
   photoPath?: string
 }
+
+export interface IProps {
+  params: Promise<{ key: string }>
+}
